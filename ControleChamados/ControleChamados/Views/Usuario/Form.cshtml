@@ -1,0 +1,16 @@
+﻿@*pagina fortemente tipada, para o tipo usuario*@
+@model ControleChamados.Models.Entidades.Usuario
+
+@*BeginForm envia para o metodo Adiciona, do Controle Usuario e a Forma de envio do Formulario*@ 
+@using (Html.BeginForm("Adiciona", "Usuario", FormMethod.Post))
+{
+    @Html.LabelFor(u => u.Nome, "Nome:")
+    @Html.TextBoxFor(u => u.Nome, new { @class = "form-control" })
+    @Html.ValidationMessageFor(u => u.Nome)
+
+    @Html.LabelFor(u => u.Senha, "Senha:")
+    @Html.PasswordFor(u => u.Senha, new { @class = "form-control" })
+    @Html.ValidationMessageFor(u => u.Senha)
+
+    <input type="submit" value="Enviar"/>
+}

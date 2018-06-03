@@ -1,0 +1,29 @@
+﻿@model IList<ControleChamados.Models.Entidades.Chamado>
+
+@Html.ActionLink("Novo Chamado", "Form", "Chamado")
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nome Do Sistema</th>
+            <th>Modulo do Sistema</th>
+            <th>Criticidade</th>
+            <th>Descricao do Sistema</th>
+            <th>Usuario Responsavel</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var m in Model)
+        {
+            <tr>
+                <td>@m.Id</td>
+                <td>@m.NomeDoSistema</td>
+                <td>@m.ModuloDoSistema</td>
+                <td>@m.Criticidade</td>
+                <td>@m.DescricaoDoSistema</td>
+                <td>@m.Usuario.Nome</td>
+            </tr>
+        }
+    </tbody>
+</table>

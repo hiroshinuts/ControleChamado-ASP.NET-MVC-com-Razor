@@ -1,0 +1,26 @@
+﻿@model ControleChamados.Models.Entidades.Chamado
+
+@using (Html.BeginForm("Adiciona", "Chamado", FormMethod.Post))
+{
+    @Html.LabelFor(m => m.NomeDoSistema, "Nome do Sistema:")
+    @Html.TextBoxFor(m => m.NomeDoSistema, new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.NomeDoSistema)
+
+    @Html.LabelFor(m => m.ModuloDoSistema, "Modulo do Sistema:")
+    @Html.TextBoxFor(m => m.ModuloDoSistema, new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.ModuloDoSistema)
+
+    @Html.LabelFor(m => m.Criticidade, "Criticidade:")
+    @Html.EnumDropDownListFor(m => m.Criticidade, new { @class= "form-control" } )
+    @Html.ValidationMessageFor(m => m.Criticidade)
+
+    @Html.LabelFor(m => m.DescricaoDoSistema, "Descrição:")
+    @Html.TextAreaFor(m => m.DescricaoDoSistema, new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.DescricaoDoSistema)
+
+    @Html.LabelFor(m => m.UsuarioId, "Usuario Responsavel:")
+    @Html.DropDownListFor(m => m.UsuarioId, new SelectList(ViewBag.Usuarios, "Id", "Nome"), new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.UsuarioId)
+
+    <input type="submit" value="Gravar Chamado"/>
+}
